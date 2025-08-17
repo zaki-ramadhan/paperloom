@@ -1,12 +1,20 @@
 # Paperloom — Notes App
 
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+
+---
+
 Paperloom is a simple MERN stack project that I created as a practice exercise.  
 The idea behind this project is straightforward: **to manage personal notes**.  
 As the name suggests, Paperloom acts as a place where notes can be created, updated, and organized easily.
 
 The backend is built with **Node.js, Express, and MongoDB (via Mongoose)**, while the frontend folder is prepared for future development using React/Vite or another modern framework.  
 
-This project is intentionally kept minimal to highlight the core CRUD functionality (create, read, update, delete). It’s designed as a learning project, but it can be extended with features like authentication, search, or a user-friendly interface.
+This project is intentionally kept minimal to highlight the core CRUD functionality (create, read, update, delete). It’s designed as a learning project, but can be extended with features like authentication, search, or a user-friendly interface.
+
 
 ---
 
