@@ -1,0 +1,47 @@
+# === Backend (Node + Express + Mongoose) ===
+
+# Dependencies
+node_modules/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Build & cache
+dist/
+build/
+.tmp/
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Editors & OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Misc
+*.swp
+*.swo
