@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Navbar from './../components/Navbar';
-import RateLimitedUI from '../components/RateLimitedUI';
+import Navbar from '@/components/Navbar';
+import RateLimitedUI from '@/components/RateLimitedUI';
 
 const Homepage = () => {
   const { isRateLimited, setIsRateLimited } = useState(true);
