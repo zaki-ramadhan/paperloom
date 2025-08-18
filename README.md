@@ -114,7 +114,6 @@ Base URL: `http://localhost:<PORT>/api/notes`
 
 - ESLint + Prettier
 - Tests (Jest/Vitest + Supertest)
-- Conventional Commits
 - Branching: `main` (stable), `dev`, `feature/*`
 
 ---
