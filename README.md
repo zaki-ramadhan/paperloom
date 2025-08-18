@@ -4,24 +4,52 @@
 [![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React Router](https://img.shields.io/badge/React%20Router-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white)](https://reactrouter.com/)
+[![Hot Toast](https://img.shields.io/badge/React%20Hot%20Toast-121212?style=for-the-badge)](https://react-hot-toast.com/)
 
 ---
 
 Paperloom is a simple MERN stack project that I created as a practice exercise.  
-The idea behind this project is straightforward: **to manage personal notes**.  
-As the name suggests, Paperloom acts as a place where notes can be created, updated, and organized easily.
+The goal is straightforward: **manage personal notes** through clear CRUD flows.
 
-The backend is built with **Node.js, Express, and MongoDB (via Mongoose)**, while the frontend folder is prepared for future development using React/Vite or another modern framework.  
+- **Backend** uses **Node.js, Express, and MongoDB (via Mongoose)**.
+- **Frontend** is being built with **React** (Vite), **React Router** (routing), and **react-hot-toast** (notifications).
 
-This project is intentionally kept minimal to highlight the core CRUD functionality (create, read, update, delete). It’s designed as a learning project, but can be extended with features like authentication, search, or a user-friendly interface.
-
+The project is intentionally minimal to keep the focus on core features. It can be extended with authentication, full-text search, or richer UI as needed.
 
 ---
 
 ## 🚀 Quick Overview
-- **Backend**: basic notes API (GET ready; create/update/delete to extend).
-- **Frontend**: empty scaffold for later.
-- **Security**: keep secrets in `.env` (do **not** commit).
+
+- **Backend**: Notes API (GET ready; create/update/delete planned or in progress).
+- **Frontend**: React app with routing & toast notifications is **in progress**.
+- **Security**: keep secrets in `.env` files (do **not** commit them).
+
+---
+
+## 📂 Project Structure
+
+```
+paperloom/
+├─ backend/
+│  ├─ src/
+│  │  ├─ config/            # db connection, env loader
+│  │  ├─ controllers/       # notes handlers
+│  │  ├─ models/            # Note schema (Mongoose)
+│  │  └─ routes/            # /api/notes
+│  ├─ package.json
+│  └─ .env.example          # placeholder only (no real credentials)
+└─ frontend/
+   ├─ src/
+   │  ├─ app/               # routes/layouts/pages (example)
+   │  ├─ components/        # UI components
+   │  └─ main.jsx/tsx       # app entry (Vite)
+   ├─ index.html
+   └─ package.json
+```
+
+> This structure is indicative; adapt folder names to your preferred conventions.
 
 ---
 
@@ -39,11 +67,23 @@ npm install
 npm run dev
 ```
 
-### Frontend (optional, later)
+**`backend/.env.example` (safe placeholder)**
+```env
+MONGO_URI=mongodb+srv://<user>:<pass>@<cluster>/<db>?retryWrites=true&w=majority
+PORT=5000
+```
+
+### Frontend
 ```bash
 cd frontend
-# e.g., initialize with your preferred framework (Vite/React, Next.js, etc.)
+npm install
+# create .env locally to point the app to your API base URL
+# Vite requires the VITE_ prefix
+echo "VITE_API_BASE_URL=http://localhost:5000/api" > .env
+npm run dev
 ```
+
+> In your frontend code, read the API base URL from `import.meta.env.VITE_API_BASE_URL`.
 
 ---
 
@@ -58,15 +98,32 @@ Base URL: `http://localhost:<PORT>/api/notes`
 | PUT    | `/:id` | Update note    |
 | DELETE | `/:id` | Delete note    |
 
+> Example sort in controllers:  
+> ```js
+> Note.find().sort({ createdAt: -1 }) // newest first (1 = oldest first)
+> ```
+
 ---
 
 ## 🔒 Security Notes
+
 - Never commit `.env`, API keys, or connection strings.
-- If a secret was committed by mistake, remove it from git history and **rotate** the credentials immediately.
+- If a secret was committed by mistake, remove it from Git history and **rotate** the credentials immediately.
+- For production hardening, consider `helmet`, CORS restrictions, rate limiting, and request validation.
+
+---
+
+## 🧪 Quality (recommended)
+
+- ESLint + Prettier
+- Tests (Jest/Vitest + Supertest)
+- Conventional Commits
+- Branching: `main` (stable), `dev`, `feature/*`
 
 ---
 
 ## 📤 Publishing
+
 ```bash
 git init
 git add .
@@ -79,4 +136,5 @@ git push -u origin main
 ---
 
 ## 📄 License
+
 Private by default. For open source, consider **MIT** or **Apache-2.0**.
