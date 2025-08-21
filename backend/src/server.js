@@ -1,7 +1,9 @@
 import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+
 import notesRoutes from "./routes/notesRoutes.js"
 import { connectDB } from "./config/db.js";
-import dotenv from "dotenv";
 import rateLimiter from "./middleware/rateLimiter.js";
 
 dotenv.config();
@@ -10,6 +12,11 @@ const PORT = process.env.PORT || 5000;
 
 // middlewares
 app.use(express.json()) // this middleware will parse JSON bodies : req.body
+app.use(cors({ // allows every request from every single url from frontend
+    origin: "http://localhost:5173",
+}))
+
+// ensure to put on the rate limiter below cors middleware
 app.use(rateLimiter);
 
 // Use prefix so each route doesn’t have to be written repeatedly
