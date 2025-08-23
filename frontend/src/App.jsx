@@ -6,13 +6,13 @@ import CreatePage from './pages/CreatePage'
 
 const App = () => {
   return (
-    <>
+    <div className='bg-base-300'>
         <Routes>
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/note/:id" element={<NoteDetailPage />}></Route>
           <Route path="/create" element={<CreatePage />}></Route>
         </Routes>
-    </>
+    </div>
   )
 }
 
