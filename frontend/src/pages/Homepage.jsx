@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import toast from 'react-hot-toast';
 
+import api from '@/lib/axios'
 import Navbar from '@/components/Navbar';
 import RateLimitedUI from '@/components/RateLimitedUI';
 import NoteCard from '@/components/NoteCard';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Homepage = () => {
   const [isRateLimited, setIsRateLimited] = useState(true);
@@ -17,7 +16,7 @@ const Homepage = () => {
   useEffect(() => {
     const getNotes = async () => {
       try {
-        const res = await axios.get(backendUrl);
+        const res = await api.get("/notes");
         console.log(res.data);
         setNotes(res.data)
         setIsRateLimited(false) // no need to set rate limiter while successfully fetching data
@@ -37,7 +36,7 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className='min-h-screen px-10 pb-10'>
+    <div className='min-h-screen px-3 md:px-10 pb-10'>
       <Navbar />
 
       {isRateLimited && <RateLimitedUI />}
@@ -47,7 +46,7 @@ const Homepage = () => {
 
       {/* the notes */}
       {notes.length > 0 && !isRateLimited && (
-        <div className='group/outer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-12'>
+        <div className='group/outer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-6 md:mt-12'>
           {notes.map(note => (
             <NoteCard key={note._id} note={note} />
           ))}

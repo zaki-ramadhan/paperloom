@@ -13,7 +13,7 @@ const NoteCard = ({ note }) => {
                 <p className='text-base-content/70 line-clamp-3'>{note.content}</p>
 
                 <div className='card-actions justify-between items-center mt-6 z-10'>
-                    <span className='text-sm text-base-content/15 group-hover/inner:text-base-content/90 duration-200'>
+                    <span className='card-date text-sm text-base-content/15 group-hover/inner:text-base-content/90 duration-200'>
                         <Clock className='inline size-3.5 mr-1.5 -mt-0.5'/>
                         {formatDate(new Date(note.createdAt))}
                     </span>

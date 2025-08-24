@@ -1,11 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router";
 import { ArrowLeftIcon } from "lucide-react";
 import { toast } from "react-hot-toast";
-import Navbar from "@/components/Navbar";
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+import Navbar from "@/components/Navbar";
+import api from "@/lib/axios";
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
@@ -17,16 +16,15 @@ const CreatePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!title.trim || !content.trim) {
-    //   toast.error("All fields are required")
-    //   console.info(backendUrl)
-    //   return;
-    // }
+    if (!title.trim() || !content.trim()) {
+      toast.error("All fields are required")
+      return;
+    }
 
     setLoading(true);
 
     try {
-      await axios.post(backendUrl, {
+      await api.post("/notes", {
         title,
         content
       })
@@ -34,7 +32,15 @@ const CreatePage = () => {
       navigate("/"); // redirect to homepage
     } catch (error) {
       console.error("Failed to create new note")
-      toast.error("Failed to create new note")
+      // set up rate limiter, in case user will spam clicking button
+      if (error.response.status === 429) {
+        toast.error("Slow down! You're creating new note too fast", {
+          duration: 3000,
+          icon: "💀"
+        });
+      } else {
+        toast.error("Failed to create new note")
+      }
     } finally {
       setLoading(false)
     }
