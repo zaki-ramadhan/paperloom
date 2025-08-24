@@ -2,12 +2,26 @@ import { Link } from 'react-router';
 import { PenSquareIcon, TrashIcon, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+import api from "@/lib/axios";
+
 import { formatDate } from '@/lib/utils';
 
-const NoteCard = ({ note }) => {
-    const handleDelete = (e, id) => {
+const NoteCard = ({ note, setNotes }) => {
+    const handleDelete = async (e, id) => {
         e.preventDefault();
-        toast.success("Note deleted successfully!");
+
+        if (!window.confirm("Are you sure you want to delete this note?")) return; // cancel delete
+
+        // accepted delete
+        try {
+            await api.delete(`/notes/${id}`);
+            // remove the deleted note real-time
+            setNotes((prev) => prev.filter(note => note._id != id)) // make a new list without the deleted note
+            toast.success("Your note has been deleted!");
+        } catch (error) {
+            console.log("Error in handleDelete", error);
+            toast.error("Failed to deleted note");
+        }
     }
     return (
         //? i just found cool tricks to manipulate animation using 'Named Groups' / 'Arbitrary Group Names' e.g. group/outer and group/inner
@@ -15,7 +29,7 @@ const NoteCard = ({ note }) => {
 
             <div className="card-body border border-stone-800/60">
                 <h3 className='card-title text-base-content text-xl'>{note.title}</h3>
-                    <p className='text-stone-500 text-base line-clamp-3'>{note.content}</p>
+                <p className='text-stone-500 text-base line-clamp-3'>{note.content}</p>
 
                 <div className='card-actions justify-between items-center mt-6 z-10'>
                     <span className='card-date text-sm text-base-content/15 group-hover/inner:text-base-content/90 duration-200'>

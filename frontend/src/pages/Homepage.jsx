@@ -72,7 +72,7 @@ const Homepage = () => {
       {notes.length > 0 && !isRateLimited && (
         <div ref={targetScroll} className='group/outer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-6 md:mt-12'>
           {notes.map(note => (
-            <NoteCard key={note._id} note={note} />
+            <NoteCard key={note._id} note={note} setNotes={setNotes}/>
           ))}
         </div>
       )}
