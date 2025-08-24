@@ -57,15 +57,15 @@ const Homepage = () => {
 
       {/* hero section */}
       <section className='hero-section text-center min-h-120 flex flex-col justify-center items-center gap-6'>
-        <div  className='group border border-stone-700  pl-2 pr-4 py-1 rounded-full cursor-pointer duration-200 hover:border-stone-300 hover:bg-stone-900'>
-          <Github className='inline size-5 mr-2 rounded-full bg-stone-900 p-2 box-content duration-200  group-hover:bg-stone-700/80' />
-          <a href="https://github.com/zaki-ramadhan/paperloom?tab=readme-ov-file#readme-ov-file" target='_blank' className='btn btn-primary font-urbanist font-light text-base bg-transparent text-white/40 border-0 px-0 group-hover:text-white'>Visit us on Github</a>
+        <div  className='group border border-stone-700  pl-2 pr-4 py-1 rounded-full cursor-pointer duration-200 hover:border-stone-400 hover:bg-stone-900 active:bg-stone-800'>
+          <Github className='inline size-4.5 mr-2 rounded-full bg-stone-900 p-1.5 box-content duration-200  group-hover:bg-stone-700/80' />
+          <a href="https://github.com/zaki-ramadhan/paperloom?tab=readme-ov-file#readme-ov-file" target='_blank' className='btn btn-primary font-urbanist font-light text-base bg-transparent text-white/40 border-0 px-0 group-hover:text-white'>Visit me on Github</a>
           <ArrowUpRight className='inline size-5 ml-1 text-white/40 duration-200 group-hover:text-white'/>
         </div>
 
         <h1 className='text-7xl font-urbanist font-medium max-w-3xl'>Let's start managing your daily notes <span className='text-primary'>easily</span>.</h1>
-        <p className='text-xl text-white/40'>A clean space to write, organize, and revisit what matters every day</p>
-        <button onClick={handleScroll} className='btn cta-btn btn-primary font-medium'>Let's Get Started!</button>
+        <p className='text-xl text-white/40'>A clean space to write, organize, and revisit what matters every day.</p>
+        <button onClick={handleScroll} className='btn cta-btn btn-primary hover:outline-2 hover:outline-offset-3 hover:outline-primary/50 active:outline-primary text-base px-8 py-6'>Let's Get Started!</button>
       </section>
 
       {/* the notes */}

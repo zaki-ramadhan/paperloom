@@ -15,7 +15,7 @@ const NoteCard = ({ note }) => {
 
             <div className="card-body border border-stone-800/60">
                 <h3 className='card-title text-base-content text-xl'>{note.title}</h3>
-                <p className='text-base-content/70 line-clamp-3'>{note.content}</p>
+                    <p className='text-stone-500 text-base line-clamp-3'>{note.content}</p>
 
                 <div className='card-actions justify-between items-center mt-6 z-10'>
                     <span className='card-date text-sm text-base-content/15 group-hover/inner:text-base-content/90 duration-200'>
