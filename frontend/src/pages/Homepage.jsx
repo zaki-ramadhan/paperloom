@@ -70,7 +70,7 @@ const Homepage = () => {
       </section>
 
       {/* empty note */}
-      {notes.length !== 0 && !isRateLimited && <NoteFoundNote />}
+      {notes.length === 0 && !isRateLimited && <NoteFoundNote />}
 
       {/* the notes */}
       {notes.length > 0 && !isRateLimited && (
