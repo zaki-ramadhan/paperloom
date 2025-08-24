@@ -10,8 +10,8 @@ const Navbar = () => {
     <header>
       <div className="mx-auto max-w-6xl p-4">
         <div className="flex items-center justify-between">
-          <Link to={"/"}>
-            <img src={logo} alt="logo paperloom image" className="w-14 md:w-18" />
+          <Link to={"/"} >
+            <img src={logo} alt="logo paperloom image" className="w-14 md:w-18" title="Logo"/>
           </Link>
 
           {/* only show button in homepage */}
