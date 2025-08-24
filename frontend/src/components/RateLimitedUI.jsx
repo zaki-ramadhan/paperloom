@@ -5,7 +5,7 @@ const RateLimitedUI = () => {
     <div className="wrapper fixed inset-0 z-20">
 
       {/* overlay */}
-      <div class="overlay absolute inset-0 bg-black/80 backdrop-blur-xs">
+      <div class="overlay absolute inset-0 bg-black/85 backdrop-blur-xs">
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-8 fixed top-1/2 left-1/2 -translate-1/2 z-30">
