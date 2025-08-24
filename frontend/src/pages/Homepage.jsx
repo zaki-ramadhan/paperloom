@@ -6,6 +6,7 @@ import api from '@/lib/axios'
 import Navbar from '@/components/Navbar';
 import RateLimitedUI from '@/components/RateLimitedUI';
 import NoteCard from '@/components/NoteCard';
+import NoteFoundNote from '@/components/NoteFoundNote';
 
 
 const Homepage = () => {
@@ -57,10 +58,10 @@ const Homepage = () => {
 
       {/* hero section */}
       <section className='hero-section text-center min-h-120 flex flex-col justify-center items-center gap-6'>
-        <div  className='label group border border-stone-700  pl-1.5 pr-2.5 py-0.5 rounded-full cursor-pointer duration-200 hover:border-stone-400 hover:bg-stone-800 active:bg-stone-700'>
+        <div className='label group border border-stone-700  pl-1.5 pr-2.5 py-0.5 rounded-full cursor-pointer duration-200 hover:border-stone-400 hover:bg-stone-800 active:bg-stone-700'>
           <Github className='inline size-4.5 mr-0.5 rounded-full bg-stone-900 p-1.5 box-content duration-200  group-hover:bg-stone-700/80 group-hover:text-white/80' />
           <a href="https://github.com/zaki-ramadhan/paperloom?tab=readme-ov-file#readme-ov-file" target='_blank' className='btn btn-primary font-urbanist font-light text-base bg-transparent text-white/40 border-0 px-0 group-hover:text-white'>Visit me on Github</a>
-          <ArrowUpRight className='inline size-5 ml-0.5 text-white/40 duration-200 group-hover:text-white'/>
+          <ArrowUpRight className='inline size-5 ml-0.5 text-white/40 duration-200 group-hover:text-white' />
         </div>
 
         <h1 className='text-7xl font-urbanist font-medium max-w-3xl'>Let's start managing your daily notes <span className='text-primary'>easily</span>.</h1>
@@ -68,11 +69,14 @@ const Homepage = () => {
         <button onClick={handleScroll} className='btn cta-btn btn-primary hover:outline-2 hover:outline-offset-3 hover:outline-primary/50 active:outline-primary text-base px-8 py-6'>Let's Get Started!</button>
       </section>
 
+      {/* empty note */}
+      {notes.length !== 0 && !isRateLimited && <NoteFoundNote />}
+
       {/* the notes */}
       {notes.length > 0 && !isRateLimited && (
         <div ref={targetScroll} className='group/outer grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mt-6 md:mt-12'>
           {notes.map(note => (
-            <NoteCard key={note._id} note={note} setNotes={setNotes}/>
+            <NoteCard key={note._id} note={note} setNotes={setNotes} />
           ))}
         </div>
       )}
