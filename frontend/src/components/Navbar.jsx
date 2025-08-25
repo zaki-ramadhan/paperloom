@@ -4,7 +4,7 @@ import { PlusIcon } from "lucide-react";
 import logo from "/paperloom-logo.svg";
 import Button from "./Button";
 
-const Navbar = () => {
+const Navbar = ({ children = null }) => {
   const location = useLocation();
 
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="mx-auto max-w-6xl p-4">
         <div className="flex items-center justify-between">
           <Link to={"/"} >
-            <img src={logo} alt="logo paperloom image" className="w-14 md:w-18" title="Logo"/>
+            <img src={logo} alt="logo paperloom image" className="w-14 md:w-18" title="Logo" />
           </Link>
 
           {/* only show button in homepage */}
@@ -23,7 +23,7 @@ const Navbar = () => {
                 <span>New Note</span>
               </Button>
             </div>
-          ) : null}
+          ) : children}
         </div>
       </div>
     </header>
