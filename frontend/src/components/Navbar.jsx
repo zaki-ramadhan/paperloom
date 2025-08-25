@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { PlusIcon } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import logo from "/paperloom-logo.svg";
 import Button from "./Button";
@@ -19,7 +19,7 @@ const Navbar = ({ children = null }) => {
           {location.pathname === '/' ? (
             <div className="flex items-center gap-4">
               <Button isLink to="/create">
-                <PlusIcon className="size-5" />
+                <Plus className="size-5" />
                 <span>New Note</span>
               </Button>
             </div>

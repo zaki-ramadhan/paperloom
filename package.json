@@ -1,0 +1,22 @@
+{
+  "name": "paperloom",
+  "version": "1.0.0",
+  "description": "Paperloom is a MERN stack notes app with CRUD operations, React UI, Express/MongoDB API, and rate limiting for secure and scalable note management.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaki-ramadhan/paperloom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zaki-ramadhan/paperloom/issues"
+  },
+  "homepage": "https://github.com/zaki-ramadhan/paperloom#readme"
+}

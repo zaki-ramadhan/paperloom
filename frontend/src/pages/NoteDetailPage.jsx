@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router";
-import { LoaderIcon, ArrowLeftIcon, TrashIcon } from "lucide-react";
+import { Loader, ArrowLeft, Trash } from "lucide-react";
 import toast from "react-hot-toast";  
 
 import api from '@/lib/axios';
@@ -35,7 +35,7 @@ const NoteDetailPage = () => {
   }, [id]); // Whenever the id changes, this will be updated
 
   if (loading) return <div className="min-h-screen bg-base-200 flex items-center justify-center">
-    <LoaderIcon className="animate-spin size-10" />
+    <Loader className="animate-spin size-10" />
   </div>
 
   const handleDelete = async (e, id) => {
@@ -85,11 +85,11 @@ const NoteDetailPage = () => {
           {/* card head */}
           <div className="card-head flex justify-between">
             <Button isLink isPrimary={false} className="btn-ghost mb-4">
-              <ArrowLeftIcon className="size-5" />
+              <ArrowLeft className="size-5" />
               Back to Notes
             </Button>
             <Button isPrimary={false} onClick={(e) => handleDelete(e, note._id)} className=" font-normal text-error px-3 py-4.5 hover:bg-red-600/15 border-[1.9px] border-red-900/40 hover:border-red-600 active:bg-red-500/30">
-              <TrashIcon className="size-4.5" />
+              <Trash className="size-4.5" />
               Delete Note
             </Button>
           </div>

@@ -60,7 +60,7 @@ const CreatePage = () => {
 
           {/* link to homepage */}
           <Button isLink isPrimary={false} className="btn-ghost mb-4">
-            <ArrowLeftIcon className="size-5" />
+            <ArrowLeft className="size-5" />
             Back to Notes
           </Button>
 

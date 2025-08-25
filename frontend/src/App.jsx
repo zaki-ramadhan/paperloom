@@ -9,7 +9,7 @@ const App = () => {
     <div className='bg-base-300'>
         <Routes>
           <Route path="/" element={<Homepage />}></Route>
-          <Route path="/note/:id" element={<NoteDetailPage />}></Route>
+          <Route path="/notes/:id" element={<NoteDetailPage />}></Route>
           <Route path="/create" element={<CreatePage />}></Route>
         </Routes>
     </div>

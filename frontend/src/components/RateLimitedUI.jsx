@@ -1,4 +1,4 @@
-import { ZapIcon } from "lucide-react";
+import { Zap } from "lucide-react";
 
 const RateLimitedUI = () => {
   return (
@@ -14,7 +14,7 @@ const RateLimitedUI = () => {
 
             {/* Icon Section */}
             <div className="flex-shrink-0 bg-primary/20 p-4 rounded-full mb-4 md:mb-0 md:mr-6">
-              <ZapIcon className="size-10 text-primary" />
+              <Zap className="size-10 text-primary" />
             </div>
 
             {/* Text Section */}
