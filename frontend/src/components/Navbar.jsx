@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { PlusIcon } from "lucide-react";
 
-import logo from "./../../public/paperloom-logo.svg";
+import logo from "/paperloom-logo.svg";
 import Button from "./Button";
 
 const Navbar = () => {

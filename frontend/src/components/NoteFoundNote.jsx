@@ -1,5 +1,5 @@
 import { NotebookPen } from "lucide-react"
-import { Link } from "react-router"
+import Button from "./Button"
 
 const NoteFoundNote = () => {
     return (
@@ -7,7 +7,7 @@ const NoteFoundNote = () => {
             <NotebookPen className="size-11 mx-auto p-5 box-content text-stone-300 bg-base-100 rounded-full border-2 border-stone-800"/>
             <h1 className="text-4xl mt-6">Let's create your first note!</h1>
             <h2 className="text-lg text-stone-500 mt-3">Your notebook is waiting… what’s on your mind today?</h2>
-            <Link to={"/create"} className="btn cta-btn btn-primary mt-8 w-fit mx-auto px-6 hover:outline-2 hover:outline-offset-3 hover:outline-primary/50 active:outline-primary">Create My First Note</Link>
+            <Button isLink to="/create" className="cta-btn mt-8 w-fit mx-auto px-6 hover:outline-2 hover:outline-offset-3 hover:outline-primary/50 active:outline-primary">Create My First Note</Button>
         </section>
     )
 }

@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import RateLimitedUI from '@/components/RateLimitedUI';
 import NoteCard from '@/components/NoteCard';
 import NoteFoundNote from '@/components/NoteFoundNote';
-import Button from './../components/Button';
+import Button from '@/components/Button';
 
 
 const Homepage = () => {
