@@ -3,7 +3,7 @@ import { Link } from "react-router"
 
 const NoteFoundNote = () => {
     return (
-        <section className="not-found-section mt-16 w-full min-h-120 text-center bg-gradient-to-b from-base-300 to-base-200 border-2 border-t-6 border-stone-800 rounded-4xl grid place-content-center">
+        <section className="not-found-section mt-16 w-full min-h-156 text-center bg-gradient-to-b from-base-300 to-base-200 border-2 border-t-6 border-stone-800 rounded-4xl grid place-content-center">
             <NotebookPen className="size-11 mx-auto p-5 box-content text-stone-300 bg-base-100 rounded-full border-2 border-stone-800"/>
             <h1 className="text-4xl mt-6">Let's create your first note!</h1>
             <h2 className="text-lg text-stone-500 mt-3">Your notebook is waiting… what’s on your mind today?</h2>

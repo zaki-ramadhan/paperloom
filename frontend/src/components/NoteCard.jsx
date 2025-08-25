@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import api from "@/lib/axios";
 
 import { formatDate } from '@/lib/utils';
+import Button from './Button';
 
 const NoteCard = ({ note, setNotes }) => {
     const handleDelete = async (e, id) => {
@@ -38,14 +39,14 @@ const NoteCard = ({ note, setNotes }) => {
                     </span>
                     <div className="flex items-center gap-1">
                         <span className='lg:tooltip' data-tip="Edit">
-                            <button className='btn edit-btn btn-ghost btn-xs px-2.5 py-4.5 hover:bg-stone-600/35 hover:border hover:border-stone-500 active:bg-stone-600/70'>
+                            <Button isPrimary={false} className='edit-btn btn-ghost btn-xs px-2.5 py-4.5 hover:bg-stone-600/35 hover:border hover:border-stone-500 active:bg-stone-600/70'>
                                 <PenSquareIcon className="size-4" />
-                            </button>
+                            </Button>
                         </span>
-                        <span onClick={(e) => handleDelete(e, note._id)} className='lg:tooltip' data-tip="Delete">
-                            <button className='btn delete-btn btn-ghost btn-xs text-error px-2.5 py-4.5 hover:bg-red-600/15 hover:border hover:border-red-500 active:bg-red-500/30'>
+                        <span className='lg:tooltip' data-tip="Delete">
+                            <Button isPrimary={false} onClick={(e) => handleDelete(e, note._id)} className='delete-btn btn-ghost btn-xs text-error px-2.5 py-4.5 hover:bg-red-600/15 hover:border hover:border-red-500 active:bg-red-500/30'>
                                 <TrashIcon className="size-4" />
-                            </button>
+                            </Button>
                         </span>
                     </div>
                 </div>

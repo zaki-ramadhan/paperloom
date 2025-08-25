@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router";
 import { PlusIcon } from "lucide-react";
 
 import logo from "./../../public/paperloom-logo.svg";
+import Button from "./Button";
 
 const Navbar = () => {
   const location = useLocation();
@@ -17,10 +18,10 @@ const Navbar = () => {
           {/* only show button in homepage */}
           {location.pathname === '/' ? (
             <div className="flex items-center gap-4">
-              <Link to="/create" className="btn btn-primary hover:outline-2 hover:outline-primary/50 active:outline-primary">
+              <Button isLink to="/create">
                 <PlusIcon className="size-5" />
                 <span>New Note</span>
-              </Link>
+              </Button>
             </div>
           ) : null}
         </div>
