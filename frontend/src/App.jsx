@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router'
 import Homepage from './pages/Homepage'
 import NoteDetailPage from './pages/NoteDetailPage'
 import CreatePage from './pages/CreatePage'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/notes/:id" element={<NoteDetailPage />}></Route>
           <Route path="/create" element={<CreatePage />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Routes>
     </div>
   )
