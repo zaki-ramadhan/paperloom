@@ -31,12 +31,12 @@ const NoteCard = ({ note, setNotes }) => {
     }
     return (
         //? i just found cool tricks to manipulate animation using 'Named Groups' / 'Arbitrary Group Names' e.g. group/outer and group/inner
-        <Link to={`/notes/${note._id}`} className='card group/inner relative bg-gradient-to-br from-base-100 to-base-300 hover:shadow-lg transition-all duration-200 border-t-4 border-stone-800 rounded-2xl overflow-hidden hover:border-primary first:hover:border-orange-700    00 hover:scale-102 group-hover/outer:opacity-50 hover:opacity-100 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-[0.2rem] before:rounded-full before:bg-primary first:hover:before:bg-orange-700 00 before:transition-all before:duration-150 hover:before:w-14 active:scale-100 after:absolute after:inset-0 after:bg-radial-[at_100%_120%] after:from-stone-900/80 after:to-stone-900/0 after:to-80% after:opacity-70 hover:after:from-stone-700 after:transition-colors after:duration-200'>
+        <Link to={`/notes/${note._id}`} className='card group/inner relative bg-gradient-to-br from-base-100 to-base-300 hover:shadow-lg transition-all duration-200 border-t-4 border-stone-800 rounded-2xl overflow-hidden hover:border-primary first:hover:border-orange-700 hover:scale-102 group-hover/outer:opacity-50 hover:opacity-100 before:absolute before:bottom-0 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-[0.2rem] before:rounded-full before:bg-primary first:hover:before:bg-orange-600 before:transition-all before:duration-150 hover:before:w-14 active:scale-100 after:absolute after:inset-0 after:bg-radial-[at_100%_120%] after:from-stone-900/80 after:to-stone-900/0 after:to-80% after:opacity-70 hover:after:from-stone-700 after:transition-colors after:duration-200'>
 
             <div className="card-body border border-stone-800/60">
                 <div className='flex justify-between items-center gap-2'>
                     <h3 className='card-title text-base-content text-xl line-clamp-1'>{note.title}</h3>
-                    <span className='hidden group-first/inner:inline p-1.5 rounded-full bg-orange-200/6 text-orange-600'><Flame/></span>
+                    <span className='hidden group-first/inner:inline p-1.5 rounded-full bg-orange-200/6 text-amber-600 animate-pulse'><Flame/></span>
                 </div>
                 <span className='h-fit overflow-hidden'>
                     <p className='text-stone-500 text-base line-clamp-2 break-all'>{note.content}</p>

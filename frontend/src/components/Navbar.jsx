@@ -8,7 +8,7 @@ const Navbar = ({ children = null }) => {
   const location = useLocation();
 
   return (
-    <header>
+    <header className="sticky top-0 backdrop-blur-xs">
       <div className="mx-auto max-w-6xl p-4">
         <div className="flex items-center justify-between">
           <Link to={"/"} >
