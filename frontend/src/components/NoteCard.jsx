@@ -1,7 +1,8 @@
-import { useState } from 'react';
 import { Link } from 'react-router';
 import { Flame, PenSquare, Trash, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { useNavigate } from "react-router";
+
 
 import api from "@/lib/axios";
 
@@ -9,6 +10,8 @@ import { formatDate } from '@/lib/utils';
 import Button from './Button';
 
 const NoteCard = ({ note, setNotes }) => {
+    const navigate = useNavigate();
+
     const handleDelete = async (e, id) => {
         e.preventDefault();
 
@@ -20,6 +23,7 @@ const NoteCard = ({ note, setNotes }) => {
             // remove the deleted note real-time
             setNotes((prev) => prev.filter(note => note._id != id)) // make a new list without the deleted note
             toast.success("Your note has been deleted!");
+            navigate("/"); // redirect to homepage
         } catch (error) {
             console.log("Error in handleDelete", error);
             toast.error("Failed to deleted note");
