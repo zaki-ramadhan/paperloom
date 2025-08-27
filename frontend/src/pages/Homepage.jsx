@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight, Github, Loader } from 'lucide-react';
 
 import api from '@/lib/axios'
 import Navbar from '@/components/Navbar';
@@ -11,7 +11,7 @@ import Button from '@/components/Button';
 
 
 const Homepage = () => {
-  const [isRateLimited, setIsRateLimited] = useState(true);
+  const [isRateLimited, setIsRateLimited] = useState(false);
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -49,13 +49,13 @@ const Homepage = () => {
   }
 
   return (
-    <main className='min-h-screen px-3 md:px-10 pb-10 bg-radial-[at_50%_0%] from-base-100/90 to-base-300 to-50%'>
+    <main className='min-h-screen px-3 md:px-10 pb-10 bg-radial-[at_50%_0%] from-base-100 to-base-300 to-50%'>
       <Navbar />
 
       {isRateLimited && <RateLimitedUI />}
 
       {/* loading */}
-      {loading && <div className='max-w-7xl text-center mx-auto p-4 mt-6'>Loading notes...</div>}
+      {loading && <div className='max-w-7xl text-center mx-auto p-4 mt-12 flex justify-center items-center gap-3'><Loader className="inline animate-spin size-5" /> Loading notes...</div>}
 
       {/* hero section */}
       <section className='hero-section text-center min-h-120 flex flex-col justify-center items-center gap-6'>

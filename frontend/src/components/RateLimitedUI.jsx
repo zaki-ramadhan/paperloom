@@ -1,6 +1,26 @@
 import { Zap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const RateLimitedUI = () => {
+  const [timeLeft, setTimeLeft] = useState(60);
+  const [isWaiting, setIsWaiting] = useState(true);
+
+  useEffect(() => {
+    let timer;
+    if(isWaiting && timeLeft > 0) {
+      timer = setInterval(() => {
+        setTimeLeft((prev)=> prev - 1);
+      }, 1000);
+    }
+
+    // reload page automatically after 60s
+    if(timeLeft === 0 && isWaiting) {
+      window.location.reload();
+    }
+
+    return () => clearInterval(timer);
+  }, [timeLeft, isWaiting]);
+
   return (
     <div className="wrapper fixed inset-0 z-20">
 
@@ -25,7 +45,7 @@ const RateLimitedUI = () => {
                 moment.
               </p>
               <p className="text-sm text-base-content/70 mt-2">
-                Try again in a few seconds for the best experience.
+                Please wait {timeLeft} {timeLeft > 1 ? "seconds" : "second"}. The page will refresh automatically.
               </p>
             </div>
 
